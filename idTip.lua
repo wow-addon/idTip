@@ -352,7 +352,8 @@ if not isClassicWow then
 
   -- Quests
   hooksecurefunc("QuestMapLogTitleButton_OnEnter", function(self)
-    local id = select(8, GetQuestLogTitle(self.questLogIndex))
+    local info = C_QuestLog.GetInfo(self.questLogIndex)
+    local id = info.questID
     addLine(GameTooltip, id, kinds.quest)
   end)
 
